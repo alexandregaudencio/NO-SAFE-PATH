@@ -1,7 +1,9 @@
 {
     "name": "CharacterSystem",
     "rootNamespace": "CharacterSystem",
-    "references": [],
+    "references": [
+        "GUID:85534d8200e3b294087f9bef02a3029d"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -5,12 +5,12 @@ namespace Game.PlayerSystem
 
     public sealed class PlayerInputHandler
     {
-        public Vector2 ReadMovement()
+        public static Vector2 direction;
+        public Vector2 MoveInput()
         {
-            return new Vector2(
-                Input.GetAxisRaw("Horizontal"),
-                Input.GetAxisRaw("Vertical")
-            ).normalized;
+            direction.x = Input.GetAxis("Horizontal");
+            direction.y = Input.GetAxis("Vertical");
+            return direction.normalized;
         }
 
         public bool JumpPressed()

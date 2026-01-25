@@ -1,11 +1,13 @@
 using System;
+using Game.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public abstract class Personagem : MonoBehaviour, IDanificavel
 {
     protected Rigidbody rigidBody;
-    [SerializeField] protected Atributos Atributos;
+    [FormerlySerializedAs("Atributos")] [SerializeField] protected CharacterAttributes characterAttributes;
     protected Vector3 direcaoMovimento = new Vector3(1, 0, 1);
 
     public UnityEvent Morreu;
@@ -14,12 +16,12 @@ public abstract class Personagem : MonoBehaviour, IDanificavel
 
     public void MudarVida(int valor)
     {
-        vidaAtual = Mathf.Clamp(vidaAtual - valor, 0, Atributos.vida);
+        vidaAtual = Mathf.Clamp(vidaAtual - valor, 0, characterAttributes.vida);
         VidaMudou?.Invoke(vidaAtual);
     }
     private void OnEnable()
     {
-        vidaAtual = Atributos.vida;
+        vidaAtual = characterAttributes.vida;
         Morreu.AddListener(DesativarObjeto);
     }
     private void OnDisable()
@@ -43,7 +45,7 @@ public abstract class Personagem : MonoBehaviour, IDanificavel
         {
             if (other.gameObject.TryGetComponent(out IDanificavel danificavel))
             {
-                danificavel.AplicarDano(Atributos.dano);
+                danificavel.AplicarDano(characterAttributes.dano);
             }
         }
     }
@@ -61,7 +63,7 @@ public abstract class Personagem : MonoBehaviour, IDanificavel
 
     protected void Mover(Vector3 direcao)
     {
-        Vector3 velocidadeH = direcao.normalized * (Atributos.velocidade * Time.fixedDeltaTime);
+        Vector3 velocidadeH = direcao.normalized * (characterAttributes.velocidade * Time.fixedDeltaTime);
         rigidBody.linearVelocity = new Vector3(velocidadeH.x, rigidBody.linearVelocity.y, velocidadeH.z);
     }
 

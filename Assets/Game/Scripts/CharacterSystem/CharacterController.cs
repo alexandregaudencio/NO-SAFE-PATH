@@ -1,3 +1,4 @@
+using Game.Attributes;
 using UnityEngine;
 
 
@@ -6,27 +7,27 @@ namespace Game.CharacterSystem
 
     public class CharacterController : MonoBehaviour
     {
-        [Header("Config")] [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private CharacterAttributes attributes;
         [SerializeField] private float jumpForce = 6f;
-
         private Rigidbody rigidbody;
         private CharacterMotor motor;
 
         private void Awake()
         {
+            
             rigidbody = GetComponent<Rigidbody>();
-            motor = new CharacterMotor(transform, rigidbody);
+            motor = new CharacterMotor(attributes, rigidbody);
         }
 
 
-        public void Run(Vector2 direction)
+        public void Move(Vector2 direction)
         {
-            motor.Move(direction * moveSpeed);
+            motor.Move(direction );
         }
 
         public void Jump()
         {
-            motor.Jump(jumpForce);
+            motor.Impulse(Vector3.up,jumpForce);
         }
 
 
