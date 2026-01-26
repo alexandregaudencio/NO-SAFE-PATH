@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: PlayerSystem::Game.PlayerSystem.PlayerController
   inputActionAsset: {fileID: -944628639613478452, guid: e1406b679213e3b43bb5ca4e8beb8f7d, type: 3}
-  characterController: {fileID: 2530249889311924987}
+  playableCharacter: {fileID: 2530249889311924987}
 --- !u!1001 &5985557031808061871
 PrefabInstance:
   m_ObjectHideFlags: 0

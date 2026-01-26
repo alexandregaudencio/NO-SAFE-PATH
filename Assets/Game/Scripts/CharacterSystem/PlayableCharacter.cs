@@ -24,12 +24,11 @@ namespace Game.CharacterSystem
             material.color = ColorInicial;
         }
 
-      public override void Move(Vector3 direction) {
-      {
-          base.Move(direction);
-          animator.SetFloat(XZspeed, Mathf.Abs( direction.normalized.magnitude));
+          public void Update()
+          {
+              animator.SetFloat(XZspeed, Mathf.Abs( moveDirection.normalized.magnitude));
 
-      }}
+          }
         protected override void OnCollisionEnter(Collision other)
         {
             base.OnCollisionEnter(other);

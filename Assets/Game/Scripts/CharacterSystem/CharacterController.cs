@@ -47,7 +47,7 @@ namespace Game.CharacterSystem
             
         }
 
-        public virtual void Move(Vector3 direction)
+        public void Move(Vector3 direction)
         { 
             moveDirection = direction;
             if (currentState != CharacterState.Walk)
