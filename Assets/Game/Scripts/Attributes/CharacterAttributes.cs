@@ -11,7 +11,7 @@ namespace Game.Attributes
     {
         [FormerlySerializedAs("dano")] public int damage = 10;
         [FormerlySerializedAs("vida")] public int health = 1;
-        public float velocidade = 100;
+        [FormerlySerializedAs("velocidade")] public float speed = 100;
 
     }
 }

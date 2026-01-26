@@ -10,12 +10,12 @@ namespace Game.CharacterSystem
         {
             base.Awake();
             moveDirection = Random.onUnitSphere.normalized;
-            // moveDirection.z = 0;
+            moveDirection.y = 0;
         }
 
         private void Update()
         {
-            AtualizaRotacao();
+            UpdateRotation();
         }
 
         private void FixedUpdate()
@@ -25,11 +25,11 @@ namespace Game.CharacterSystem
 
         protected override void OnCollisionEnter(Collision collision)
         {
-            AtualizaDirecaoMovimento(collision);
+            UpdateMoveDirection(collision);
             base.OnCollisionEnter(collision);
         }
 
-        private void AtualizaRotacao()
+        private void UpdateRotation()
         {
             Vector3 direcaoRotation = moveDirection;
             direcaoRotation.y = 0;
@@ -38,7 +38,7 @@ namespace Game.CharacterSystem
 
         }
 
-        private void AtualizaDirecaoMovimento(Collision collision)
+        private void UpdateMoveDirection(Collision collision)
         {
             foreach (ContactPoint contact in collision.contacts)
             {

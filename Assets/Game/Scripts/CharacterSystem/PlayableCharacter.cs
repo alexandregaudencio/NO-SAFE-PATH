@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Game.CharacterSystem;
 using UnityEngine;
@@ -5,8 +6,7 @@ using UnityEngine;
 namespace Game.CharacterSystem
 {
 
-
-    public class PlayableCharacter : Game.CharacterSystem.CharacterController
+    public class PlayableCharacter : CharacterController
     {
         [SerializeField] private Material material;
         [SerializeField] Color ColorInicial;
@@ -38,8 +38,6 @@ namespace Game.CharacterSystem
                 animator.SetBool("pulando", false);
             }
         }
-
-
 
         public IEnumerator DamageEffect()
         {

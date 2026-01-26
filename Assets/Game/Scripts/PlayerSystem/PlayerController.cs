@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using Game.CharacterSystem;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using CharacterController = Game.CharacterSystem.CharacterController;
 
 namespace Game.PlayerSystem
@@ -12,9 +13,8 @@ namespace Game.PlayerSystem
     public sealed class PlayerController : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputActionAsset;
-
+        [SerializeField] private PlayableCharacter playableCharacter;
         private PlayerInputHandler inputHandler;
-        [SerializeField] private CharacterController characterController;
         private void Awake()
         {
             inputHandler = new(inputActionAsset);
@@ -23,7 +23,7 @@ namespace Game.PlayerSystem
         private void FixedUpdate()
         {
             
-            characterController.Move(inputHandler.MoveInput());
+            playableCharacter.Move(inputHandler.MoveInput());
             
         }
 
@@ -31,7 +31,7 @@ namespace Game.PlayerSystem
         {
             if (inputHandler.JumpPressed())
             {
-                characterController.Jump();
+                playableCharacter.Jump();
             }
         }
     }

@@ -16,10 +16,11 @@ namespace Game.CharacterSystem
             this.rigidbody = rigidbody;
         }
 
-        public void Move(Vector2 direction)
+        public void Move(Vector3 direction)
         {
-            Vector2 velocidadeH = direction.normalized * (attributes.velocidade * Time.fixedDeltaTime);
-            rigidbody.linearVelocity = new Vector3(velocidadeH.x, rigidbody.linearVelocity.y, velocidadeH.y);
+            var newVelocity = direction.normalized * (attributes.speed * Time.fixedDeltaTime);
+            //TODO: GC
+            rigidbody.linearVelocity = new Vector3(newVelocity.x, rigidbody.linearVelocity.y, newVelocity.z);
         }
 
         public void Impulse(Vector3 direction, float force)

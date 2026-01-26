@@ -1,5 +1,6 @@
 using System;
 using Game.Attributes;
+using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -22,6 +23,7 @@ namespace Game.CharacterSystem
         protected Rigidbody rigidbody;
         protected CharacterMotor motor;
         protected Animator animator;
+        // protected AnimatorController animatorController;
         
         // private ObservableCollection<string> observableCollection = new();
         public CharacterState currentState = CharacterState.Idle;
@@ -44,15 +46,14 @@ namespace Game.CharacterSystem
             
         }
 
-        // ReSharper disable Unity.PerformanceAnalysis
         public void Move(Vector3 direction)
-        {
+        { ;
             moveDirection = direction;
             if (currentState != CharacterState.Walk)
             {
                 SetState(CharacterState.Walk);
             }
-            motor.Move(direction );
+            motor.Move(moveDirection );
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection),20*Time.deltaTime);
 
         }
@@ -62,7 +63,7 @@ namespace Game.CharacterSystem
             if(currentState == CharacterState.Jump) return;
             else SetState(CharacterState.Jump);
             motor.Impulse(Vector3.up,jumpForce);
-            animator.SetBool("pulando", true);
+            animator.Play(Animator.StringToHash("Jump"));
 
         }
         

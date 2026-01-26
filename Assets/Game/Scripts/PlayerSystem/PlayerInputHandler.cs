@@ -10,7 +10,7 @@ namespace Game.PlayerSystem
         private const string ACTION_MAP = "Character";
         private const string MOVE_ACTION = "move";
         private const string JUMP_ACTION = "Jump";
-        public static Vector3 direction;
+        public static Vector3 direction = Vector3.zero;
         private readonly InputActionAsset actionAsset;
         private InputActionMap actionMap;
         private InputAction moveAction;
@@ -26,11 +26,10 @@ namespace Game.PlayerSystem
         
         public void Dispose()
         {
-            actionAsset.Disable();
-
+            actionMap.Disable();
         }
 
-        public Vector2 MoveInput()
+        public Vector3 MoveInput()
         {
             // direction.x = Input.GetAxis("Horizontal");
             // direction.y = Input.GetAxis("Vertical");
