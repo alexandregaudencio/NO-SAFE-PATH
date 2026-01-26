@@ -1,37 +1,42 @@
+using Game.CharacterSystem;
 using UnityEngine;
 
-public class CoracoesJogador : MonoBehaviour
+namespace Game.UI
 {
-    [SerializeField] private Jogador jogador;
-
-    [SerializeField] private GameObject[] coracoes;
-
-    private void OnEnable()
+    public class CoracoesJogador : MonoBehaviour
     {
-        jogador.VidaMudou += AatualizarCoracoes;
-    }
+        [SerializeField]
+        private PlayableCharacter playableCharacter;
 
-    private void OnDisable()
-    {
-        jogador.VidaMudou -= AatualizarCoracoes;
+        [SerializeField] private GameObject[] coracoes;
 
-    }
-
-    private void AatualizarCoracoes(int vida)
-    {
-        for (int i = 0; i < coracoes.Length; i++)
+        private void OnEnable()
         {
-            if (vida > i)
-            {
-                coracoes[i].SetActive(true);
-            }
-            else
-            {
-                coracoes[i].SetActive(false);
-            }
+            playableCharacter.HealthChange += AatualizarCoracoes;
         }
 
+        private void OnDisable()
+        {
+            playableCharacter.HealthChange -= AatualizarCoracoes;
+
+        }
+
+        private void AatualizarCoracoes(int vida)
+        {
+            for (int i = 0; i < coracoes.Length; i++)
+            {
+                if (vida > i)
+                {
+                    coracoes[i].SetActive(true);
+                }
+                else
+                {
+                    coracoes[i].SetActive(false);
+                }
+            }
+
+        }
+
+
     }
-
-
 }

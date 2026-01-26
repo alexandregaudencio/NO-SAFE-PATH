@@ -1,6 +1,9 @@
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using Game.CharacterSystem;
+using UnityEngine.InputSystem;
+using CharacterController = Game.CharacterSystem.CharacterController;
 
 namespace Game.PlayerSystem
 {
@@ -8,12 +11,18 @@ namespace Game.PlayerSystem
     [RequireComponent(typeof(Rigidbody))]
     public sealed class PlayerController : MonoBehaviour
     {
-        private PlayerInputHandler inputHandler = new();
-        [SerializeField] private Game.CharacterSystem.CharacterController characterController;
+        [SerializeField] private InputActionAsset inputActionAsset;
 
-
+        private PlayerInputHandler inputHandler;
+        [SerializeField] private CharacterController characterController;
+        private void Awake()
+        {
+            inputHandler = new(inputActionAsset);
+        }
+        
         private void FixedUpdate()
         {
+            
             characterController.Move(inputHandler.MoveInput());
             
         }

@@ -1,11 +1,12 @@
 using System.Collections;
+using Game.CharacterSystem;
 using UnityEngine;
 
 public class GeradorDeInimigos : MonoBehaviour
 {
 
     [SerializeField] private int maximo = 50;
-    [SerializeField] private Inimigo[] inimigos;
+    [SerializeField] private EnemyController[] inimigos;
     [SerializeField] private float intervalo = 3;
     [SerializeField] private float raio = 3;
     private int contadorInimigos = 0;

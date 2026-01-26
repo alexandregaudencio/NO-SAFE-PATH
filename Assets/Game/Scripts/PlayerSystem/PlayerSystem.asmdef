@@ -2,7 +2,8 @@
     "name": "PlayerSystem",
     "rootNamespace": "",
     "references": [
-        "GUID:1fd5d94488af3e942bcb92597f15fbf5"
+        "GUID:1fd5d94488af3e942bcb92597f15fbf5",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
