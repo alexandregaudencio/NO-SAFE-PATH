@@ -7,7 +7,8 @@ namespace Game.CharacterSystem
 {
 
     public class PlayableCharacter : CharacterController
-    {
+    {        
+        private static readonly int XZspeed = Animator.StringToHash("XZspeed");
         [SerializeField] private Material material;
         [SerializeField] Color ColorInicial;
         [SerializeField] private float alturaPulo = 20;
@@ -23,6 +24,12 @@ namespace Game.CharacterSystem
             material.color = ColorInicial;
         }
 
+      public override void Move(Vector3 direction) {
+      {
+          base.Move(direction);
+          animator.SetFloat(XZspeed, Mathf.Abs( direction.normalized.magnitude));
+
+      }}
         protected override void OnCollisionEnter(Collision other)
         {
             base.OnCollisionEnter(other);

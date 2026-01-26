@@ -2,12 +2,13 @@
 
 namespace Game.CharacterSystem
 {
-    public class AnimatorController
+    
+    public class AnimationController
     {
         
         private readonly Animator animator;
 
-        public AnimatorController(Animator animator)
+        public AnimationController(Animator animator)
         {
             this.animator = animator;
         }

@@ -23,7 +23,7 @@ namespace Game.CharacterSystem
         protected Rigidbody rigidbody;
         protected CharacterMotor motor;
         protected Animator animator;
-        // protected AnimatorController animatorController;
+        protected AnimationController animationController;
         
         // private ObservableCollection<string> observableCollection = new();
         public CharacterState currentState = CharacterState.Idle;
@@ -34,9 +34,10 @@ namespace Game.CharacterSystem
         {
             rigidbody = GetComponent<Rigidbody>();
             motor = new CharacterMotor(attributes, rigidbody);
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
             SetState(CharacterState.Idle);
             currentHealth = attributes.health;
+            animationController = new AnimationController(GetComponentInChildren<Animator>());
         }    
         
         protected void SetState(CharacterState state) 
@@ -46,14 +47,13 @@ namespace Game.CharacterSystem
             
         }
 
-        public void Move(Vector3 direction)
-        { ;
+        public virtual void Move(Vector3 direction)
+        { 
             moveDirection = direction;
             if (currentState != CharacterState.Walk)
             {
                 SetState(CharacterState.Walk);
             }
-            motor.Move(moveDirection );
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection),20*Time.deltaTime);
 
         }
@@ -63,7 +63,7 @@ namespace Game.CharacterSystem
             if(currentState == CharacterState.Jump) return;
             else SetState(CharacterState.Jump);
             motor.Impulse(Vector3.up,jumpForce);
-            animator.Play(Animator.StringToHash("Jump"));
+            animationController.Play("Jump");
 
         }
         
