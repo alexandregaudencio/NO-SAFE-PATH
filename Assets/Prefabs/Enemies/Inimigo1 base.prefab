@@ -159,9 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f0b3ed64c36fe45b86db9e84da02d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributes: {fileID: 11400000, guid: a86b78bb6debe64478e3b795c5f03fba, type: 2}
+  <Attributes>k__BackingField: {fileID: 11400000, guid: a86b78bb6debe64478e3b795c5f03fba, type: 2}
   jumpForce: 6
-  currentState: 0
 --- !u!1 &2057721294561317155
 GameObject:
   m_ObjectHideFlags: 0

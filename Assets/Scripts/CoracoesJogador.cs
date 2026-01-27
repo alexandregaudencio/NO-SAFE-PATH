@@ -12,12 +12,12 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            playableCharacter.HealthChange += AatualizarCoracoes;
+            playableCharacter.HealthChanged += AatualizarCoracoes;
         }
 
         private void OnDisable()
         {
-            playableCharacter.HealthChange -= AatualizarCoracoes;
+            playableCharacter.HealthChanged -= AatualizarCoracoes;
 
         }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using Game.CharacterSystem;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Zenject;
 using CharacterController = Game.CharacterSystem.CharacterController;
 
 namespace Game.PlayerSystem
@@ -13,13 +14,18 @@ namespace Game.PlayerSystem
     public sealed class PlayerController : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputActionAsset;
-        [SerializeField] private PlayableCharacter playableCharacter;
+        private IPlayableCharacter playableCharacter;
         private PlayerInputHandler inputHandler;
         private void Awake()
         {
             inputHandler = new(inputActionAsset);
         }
-        
+
+        [Inject]
+        void Construct(IPlayableCharacter playableCharacter)
+        {
+            this.playableCharacter = playableCharacter;
+        }
         
         private void FixedUpdate()
         {

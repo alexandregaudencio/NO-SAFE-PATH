@@ -6,7 +6,9 @@ using UnityEngine;
 namespace Game.CharacterSystem
 {
 
-    public class PlayableCharacter : CharacterController
+
+
+    public class PlayableCharacter : CharacterController, IPlayableCharacter
     {        
         private static readonly int XZspeed = Animator.StringToHash("XZspeed");
         [SerializeField] private Material material;
@@ -24,7 +26,7 @@ namespace Game.CharacterSystem
             material.color = ColorInicial;
         }
 
-          public void Update()
+          protected void Update()
           {
               animator.SetFloat(XZspeed, Mathf.Abs( moveDirection.normalized.magnitude));
 
@@ -45,14 +47,14 @@ namespace Game.CharacterSystem
             }
         }
 
-        public IEnumerator DamageEffect()
+        protected IEnumerator DamageEffect()
         {
             material.color = Color.softRed;
             yield return new WaitForSeconds(0.2f);
             material.color = ColorInicial;
         }
 
-        private void PlayAudioClip(AudioClip audioClip)
+        protected void PlayAudioClip(AudioClip audioClip)
         {
             audioSource.clip = audioClip;
             audioSource.Play();
