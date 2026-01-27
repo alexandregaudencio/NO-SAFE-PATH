@@ -1,4 +1,5 @@
 using Game.Attributes;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Game.CharacterSystem
@@ -8,12 +9,18 @@ namespace Game.CharacterSystem
         private readonly CharacterAttributes attributes;
         private readonly Transform transform;
         private readonly Rigidbody rigidbody;
-
-        public CharacterMotor(CharacterAttributes attributes, Rigidbody rigidbody)
+        private readonly Transform feet;
+        
+        private Ray ray;
+        RaycastHit[] results = new RaycastHit[2];
+        private LayerMask groundLayer = LayerMask.NameToLayer("Ground");
+        public CharacterMotor(CharacterAttributes attributes, Rigidbody rigidbody, Transform feet)
         {
+            ray = new Ray(feet.position, Vector3.down);
             this.attributes = attributes;
             this.transform = rigidbody.transform;
             this.rigidbody = rigidbody;
+            this.feet = feet;
         }
 
         public void Move(Vector3 direction)
@@ -25,17 +32,16 @@ namespace Game.CharacterSystem
 
         public void Impulse(Vector3 direction, float force)
         {
-            rigidbody.AddForce(Vector3.up * force, ForceMode.Impulse);
+            rigidbody.AddForce(direction * force, ForceMode.Impulse);
 
         }
 
-        private bool CheckGrounded()
+
+        public bool IsGrounded()
         {
-            return Physics.Raycast(
-                transform.position,
-                Vector3.down,
-                1.1f
-            );
+            ray.origin = feet.position;
+            var cast = Physics.RaycastNonAlloc(feet.position, Vector3.down, results, 10);
+            return cast > 0;
         }
     }
 }

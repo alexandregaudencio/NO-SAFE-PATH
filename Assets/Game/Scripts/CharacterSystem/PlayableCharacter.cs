@@ -15,7 +15,6 @@ namespace Game.CharacterSystem
         [SerializeField] Color ColorInicial;
         [SerializeField] private float alturaPulo = 20;
         private AudioSource audioSource;
-        private bool pulando = false;
         [SerializeField] private AudioClip puloAudioClip;
         [SerializeField] private AudioClip hitAudioClip;
 

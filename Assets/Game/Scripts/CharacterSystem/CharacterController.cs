@@ -43,6 +43,7 @@ namespace Game.CharacterSystem
     
     public class CharacterController : MonoBehaviour, ICharacter
     {
+        [SerializeField] private Transform feet;
         [field: SerializeField] public CharacterAttributes Attributes { get; private set; }
         [SerializeField] private float jumpForce = 6f;
         protected Vector3 moveDirection;
@@ -57,7 +58,7 @@ namespace Game.CharacterSystem
         protected virtual void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
-            motor = new CharacterMotor(Attributes, rigidbody);
+            motor = new CharacterMotor(Attributes, rigidbody, feet);
             animator = GetComponentInChildren<Animator>();
             State.Value = (CharacterState.Idle);
             Health  = new(Attributes.health);
@@ -80,6 +81,7 @@ namespace Game.CharacterSystem
 
         public void Jump()
         {
+            if (motor.IsGrounded()) return;
             if(State.Value == CharacterState.Jump) return;
             else State.Value = CharacterState.Jump;
             motor.Impulse(Vector3.up,jumpForce);
