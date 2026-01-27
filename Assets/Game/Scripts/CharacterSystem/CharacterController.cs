@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 namespace Game.CharacterSystem
 {
+    //PlayableCharacterState
     public enum CharacterState
     {
         Idle,

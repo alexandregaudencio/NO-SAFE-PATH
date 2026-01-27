@@ -983,7 +983,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600132633}
-  - component: {fileID: 1600132632}
+  - component: {fileID: 1600132634}
+  - component: {fileID: 1600132635}
   m_Layer: 0
   m_Name: Installer
   m_TagString: Untagged
@@ -991,7 +992,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1600132632
+--- !u!4 &1600132633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600132631}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.73941, y: -0.027, z: -10.29421}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600132634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600132631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5518284c5c0dfa4c84ec37148863977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Installer::GameplayInstaller
+--- !u!114 &1600132635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1004,7 +1032,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 1600132634}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1022,21 +1051,6 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
---- !u!4 &1600132633
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1600132631}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.73941, y: -0.027, z: -10.29421}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &626925146506791233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1045,6 +1059,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2530249889311924987, guid: 580d5fa48ff245a43a411d1c3c3b746f, type: 3}
+      propertyPath: <Attributes>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e46ca994626e264e8bf6e66054703a1, type: 2}
     - target: {fileID: 4054210438514195992, guid: 580d5fa48ff245a43a411d1c3c3b746f, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1172,6 +1190,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1600132633}
   - {fileID: 330585546}
   - {fileID: 230023181}
   - {fileID: 410087041}
@@ -1182,4 +1201,3 @@ SceneRoots:
   - {fileID: 626925146506791233}
   - {fileID: 8826492360705992804}
   - {fileID: 1368779362}
-  - {fileID: 1600132633}

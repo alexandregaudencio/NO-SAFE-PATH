@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86f3f2b14cfbf541989f8fce3cc5ed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jogador: {fileID: 0}
-  coracoes:
+  heartsObjects:
   - {fileID: 3642147762701703477}
   - {fileID: 8086236522515641785}
   - {fileID: 936721202528544095}
@@ -66,7 +65,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alvo: {fileID: 0}
-  speed: 20
 --- !u!1001 &17608856528443406
 PrefabInstance:
   m_ObjectHideFlags: 0

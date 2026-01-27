@@ -1,10 +1,9 @@
 {
-    "name": "PlayerSystem",
-    "rootNamespace": "",
+    "name": "Game.UI",
+    "rootNamespace": "Game.UI",
     "references": [
-        "GUID:1fd5d94488af3e942bcb92597f15fbf5",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:fcd95b775608db94eb972ac613433af2"
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:1fd5d94488af3e942bcb92597f15fbf5"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,16 +1,11 @@
-using System;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using Game.CharacterSystem;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Zenject;
-using CharacterController = Game.CharacterSystem.CharacterController;
 
 namespace Game.PlayerSystem
 {
 
-    [RequireComponent(typeof(Rigidbody))]
     public sealed class PlayerController : MonoBehaviour
     {
         [SerializeField] private InputActionAsset inputActionAsset;
