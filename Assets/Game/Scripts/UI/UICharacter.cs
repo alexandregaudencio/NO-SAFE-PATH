@@ -1,4 +1,6 @@
+using System;
 using Game.CharacterSystem;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -10,19 +12,22 @@ namespace Game.UI
         private IPlayableCharacter playableCharacter;
 
         [SerializeField] private GameObject[] heartsObjects;
-
-        private void OnEnable()
+        private IDisposable healthSubscription;
+        private void Start()
         {
-            playableCharacter.HealthChanged += UpdateHearts;
+          healthSubscription =   playableCharacter.Health
+              .Subscribe(UpdateHearts)
+              .AddTo(this);
         }
 
-        private void OnDisable()
-        {
-            playableCharacter.HealthChanged -= UpdateHearts;
 
+        private void OnDestroy()
+        {
+            healthSubscription.Dispose();
         }
 
-        private void UpdateHearts(int health)
+
+        private void  UpdateHearts(int health)
         {
             for (int i = 0; i < heartsObjects.Length; i++)
             {

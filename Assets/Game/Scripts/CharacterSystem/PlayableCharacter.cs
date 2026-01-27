@@ -42,7 +42,7 @@ namespace Game.CharacterSystem
 
             if (other.gameObject.CompareTag("Solo"))
             {
-                SetState(CharacterState.Idle);
+                State.Value =(CharacterState.Idle);
                 animator.SetBool("pulando", false);
             }
         }

@@ -1,5 +1,6 @@
 using System;
 using Game.Attributes;
+using UniRx;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -44,42 +45,34 @@ namespace Game.CharacterSystem
     {
         [field: SerializeField] public CharacterAttributes Attributes { get; private set; }
         [SerializeField] private float jumpForce = 6f;
-        private int currentHealth;
         protected Vector3 moveDirection;
         protected Rigidbody rigidbody;
         protected CharacterMotor motor;
         protected Animator animator;
         public AnimationController AnimationController { get; private set; }
-
-        public CharacterState CurrentState { get;private  set; } = CharacterState.Idle;
+        public ReactiveProperty<int> Health { get; private set; }
+        public ReactiveProperty<CharacterState> State { get; private set; } = new(CharacterState.Idle);
         // private ObservableCollection<string> observableCollection = new();
-        public event Action<CharacterState> StateChanged; 
-        public event Action<int> HealthChanged;
         
         protected virtual void Awake()
         {
             rigidbody = GetComponent<Rigidbody>();
             motor = new CharacterMotor(Attributes, rigidbody);
             animator = GetComponentInChildren<Animator>();
-            SetState(CharacterState.Idle);
-            currentHealth = Attributes.health;
+            State.Value = (CharacterState.Idle);
+            Health  = new(Attributes.health);
             AnimationController = new AnimationController(GetComponentInChildren<Animator>());
         }    
         
-        protected void SetState(CharacterState state) 
-        {
-            CurrentState = state;
-            StateChanged?.Invoke(CurrentState);
-            
-        }
+
 
         public void Move(Vector3 direction)
         { 
             moveDirection = direction;
             motor.Move(moveDirection);
-            if (CurrentState != CharacterState.Walk)
+            if (State.Value != CharacterState.Walk)
             {
-                SetState(CharacterState.Walk);
+                State.Value =(CharacterState.Walk);
             }
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection),20*Time.fixedDeltaTime);
 
@@ -87,8 +80,8 @@ namespace Game.CharacterSystem
 
         public void Jump()
         {
-            if(CurrentState == CharacterState.Jump) return;
-            else SetState(CharacterState.Jump);
+            if(State.Value == CharacterState.Jump) return;
+            else State.Value = CharacterState.Jump;
             motor.Impulse(Vector3.up,jumpForce);
             AnimationController.Play("Jump");
 
@@ -108,17 +101,16 @@ namespace Game.CharacterSystem
 
         private void SetHealth(int valor)
         {
-            currentHealth = Mathf.Clamp(currentHealth - valor, 0, Attributes.health);
-            HealthChanged?.Invoke(currentHealth);
+            Health.Value = Mathf.Clamp(Health.Value - valor, 0, Attributes.health);
         }
 
 
         public void ApplyDamage(int damage)
         {
             SetHealth(damage);
-            if (currentHealth <= 0)
+            if (Health.Value <= 0)
             {
-                SetState(CharacterState.Death);
+                State.Value = (CharacterState.Death);
                 this.gameObject.SetActive(false);
 
             }

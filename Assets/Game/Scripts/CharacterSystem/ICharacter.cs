@@ -1,5 +1,6 @@
 ﻿using System;
 using Game.Attributes;
+using UniRx;
 using UnityEngine;
 
 namespace Game.CharacterSystem
@@ -8,9 +9,8 @@ namespace Game.CharacterSystem
     {
         CharacterAttributes Attributes { get; }
         AnimationController AnimationController { get; }
-        
-        event Action<CharacterState> StateChanged;
-        event Action<int> HealthChanged;
+        public ReactiveProperty<int> Health { get;  }
+        public ReactiveProperty<CharacterState> State { get;  }
         void Move(Vector3 direction);
         void Jump();
         

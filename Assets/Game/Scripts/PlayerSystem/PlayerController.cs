@@ -8,12 +8,13 @@ namespace Game.PlayerSystem
     public sealed class PlayerController : MonoBehaviour
     {
         private IPlayableCharacter playableCharacter;
-        [Inject] private PlayerInputHandler inputHandler;
+        private PlayerInputHandler inputHandler;
 
         [Inject]
-        void Construct(IPlayableCharacter playableCharacter)
+        void Construct(IPlayableCharacter playableCharacter, PlayerInputHandler inputHandler)
         {
             this.playableCharacter = playableCharacter;
+            this.inputHandler = inputHandler;
         }
         
         private void FixedUpdate()
