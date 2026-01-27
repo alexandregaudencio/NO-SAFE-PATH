@@ -11,12 +11,11 @@ namespace Game.CharacterSystem
         private readonly Rigidbody rigidbody;
         private readonly Transform feet;
         
-        private Ray ray;
         RaycastHit[] results = new RaycastHit[2];
-        private LayerMask groundLayer = LayerMask.NameToLayer("Ground");
+        private static readonly LayerMask groundLayer = LayerMask.GetMask("Ground");
+        
         public CharacterMotor(CharacterAttributes attributes, Rigidbody rigidbody, Transform feet)
         {
-            ray = new Ray(feet.position, Vector3.down);
             this.attributes = attributes;
             this.transform = rigidbody.transform;
             this.rigidbody = rigidbody;
@@ -26,8 +25,8 @@ namespace Game.CharacterSystem
         public void Move(Vector3 direction)
         {
             var newVelocity = direction.normalized * (attributes.speed * Time.fixedDeltaTime);
-            //TODO: GC
-            rigidbody.linearVelocity = new Vector3(newVelocity.x, rigidbody.linearVelocity.y, newVelocity.z);
+            newVelocity.y = rigidbody.linearVelocity.y;
+            rigidbody.linearVelocity = newVelocity;
         }
 
         public void Impulse(Vector3 direction, float force)
@@ -39,8 +38,7 @@ namespace Game.CharacterSystem
 
         public bool IsGrounded()
         {
-            ray.origin = feet.position;
-            var cast = Physics.RaycastNonAlloc(feet.position, Vector3.down, results, 10);
+            var cast = Physics.RaycastNonAlloc(feet.position, Vector3.down, results, 10,  groundLayer);
             return cast > 0;
         }
     }
