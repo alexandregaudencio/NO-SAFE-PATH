@@ -10,15 +10,14 @@ namespace Game.PlayerSystem
     {
         private const string ACTION_MAP = "Character";
         private const string MOVE_ACTION = "move";
-        private const string JUMP_ACTION = "Jump";
-        [Inject] private InputActionAsset inputActionAsset;
-        public static Vector3 direction = Vector3.zero;
-        private readonly InputActionAsset actionAsset;
+        private const string JUMP_ACTION = "Jump"; 
+        private InputActionAsset actionAsset;
         private InputActionMap actionMap;
         private InputAction moveAction;
         private InputAction jumpAction;
+        public static Vector3 direction = Vector3.zero;
         
-        public PlayerInputHandler()
+        public PlayerInputHandler(InputActionAsset actionAsset)
         {
             this.actionAsset = actionAsset;
             moveAction = actionAsset.FindAction(MOVE_ACTION);

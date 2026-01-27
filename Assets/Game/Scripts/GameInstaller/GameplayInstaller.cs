@@ -11,8 +11,7 @@ public class GameplayInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<IPlayableCharacter>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<InputActionAsset>().FromScriptableObject(inputActions).AsSingle();
-        Container.Bind<PlayerInputHandler>();
+        Container.Bind<PlayerInputHandler>().AsSingle().WithArguments(inputActions);
 
 
     }
