@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using Game.CharacterSystem;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Game.PlayerSystem
@@ -16,20 +18,34 @@ namespace Game.PlayerSystem
             this.playableCharacter = playableCharacter;
             this.inputHandler = inputHandler;
         }
+
+        private void OnEnable()
+        {
+            inputHandler.JumpAction.started += OnJumpInputPerformed;
+        }
+
+        private void OnDisable()
+        {            
+            inputHandler.JumpAction.started -= OnJumpInputPerformed;
+        }
         
+
+
+        private void OnJumpInputPerformed(InputAction.CallbackContext obj)
+        {
+                playableCharacter.Jump();
+
+
+        }
+        
+
         private void FixedUpdate()
         {
-            
             playableCharacter.Move(inputHandler.MoveInput());
+            
             
         }
 
-        private void Update()
-        {
-            if (inputHandler.JumpPressed())
-            {
-                playableCharacter.Jump();
-            }
-        }
+
     }
 }

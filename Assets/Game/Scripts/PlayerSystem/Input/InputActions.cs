@@ -115,7 +115,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""AWSD"",
                     ""id"": ""70ef0f56-c088-4a0a-ae35-edb6bdcb1991"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -13,15 +13,15 @@ namespace Game.PlayerSystem
         private const string JUMP_ACTION = "Jump"; 
         private InputActionAsset actionAsset;
         private InputActionMap actionMap;
-        private InputAction moveAction;
-        private InputAction jumpAction;
+        public InputAction MoveAction { get; private set; }
+        public InputAction JumpAction { get; private set; }
         public static Vector3 direction = Vector3.zero;
         
         public PlayerInputHandler(InputActionAsset actionAsset)
         {
             this.actionAsset = actionAsset;
-            moveAction = actionAsset.FindAction(MOVE_ACTION);
-            jumpAction = actionAsset.FindAction(JUMP_ACTION);
+            MoveAction = actionAsset.FindAction(MOVE_ACTION);
+            JumpAction = actionAsset.FindAction(JUMP_ACTION);
             actionMap =  actionAsset.FindActionMap(ACTION_MAP);
             actionMap.Enable();
         }
@@ -35,7 +35,7 @@ namespace Game.PlayerSystem
         {
             // direction.x = Input.GetAxis("Horizontal");
             // direction.y = Input.GetAxis("Vertical");
-            var inputMoveValue = moveAction.ReadValue<Vector2>();
+            var inputMoveValue = MoveAction.ReadValue<Vector2>();
             direction.x  = inputMoveValue.x;
             direction.z = inputMoveValue.y;
             return direction.normalized;
@@ -44,7 +44,7 @@ namespace Game.PlayerSystem
         public bool JumpPressed()
         {
             // return Input.GetButtonDown(JUMP_ACTION);
-            return jumpAction.WasPerformedThisFrame();
+            return JumpAction.WasPerformedThisFrame();
         }
 
 
