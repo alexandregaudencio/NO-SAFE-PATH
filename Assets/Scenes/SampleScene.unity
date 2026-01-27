@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d657d773d2ff841b98e3035c01ddb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alvo: {fileID: 3934268201268008456}
+  target: {fileID: 3934268201268008456}
 --- !u!1 &357821608
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +586,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6691372176237752985, guid: df1a1f65fd75564488d9d8d7a683b54c, type: 3}
       propertyPath: alvo
+      value: 
+      objectReference: {fileID: 3934268201268008456}
+    - target: {fileID: 6691372176237752985, guid: df1a1f65fd75564488d9d8d7a683b54c, type: 3}
+      propertyPath: target
       value: 
       objectReference: {fileID: 3934268201268008456}
     - target: {fileID: 8264989240213176308, guid: df1a1f65fd75564488d9d8d7a683b54c, type: 3}
