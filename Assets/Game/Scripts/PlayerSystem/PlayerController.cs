@@ -20,6 +20,7 @@ namespace Game.PlayerSystem
             inputHandler = new(inputActionAsset);
         }
         
+        
         private void FixedUpdate()
         {
             

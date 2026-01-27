@@ -50,11 +50,12 @@ namespace Game.CharacterSystem
         public void Move(Vector3 direction)
         { 
             moveDirection = direction;
+            motor.Move(moveDirection);
             if (currentState != CharacterState.Walk)
             {
                 SetState(CharacterState.Walk);
             }
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection),20*Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(moveDirection),20*Time.fixedDeltaTime);
 
         }
 
