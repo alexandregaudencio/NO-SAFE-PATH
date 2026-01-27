@@ -1,6 +1,5 @@
 using UnityEngine;
 using Game.CharacterSystem;
-using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Game.PlayerSystem
@@ -8,13 +7,8 @@ namespace Game.PlayerSystem
 
     public sealed class PlayerController : MonoBehaviour
     {
-        [SerializeField] private InputActionAsset inputActionAsset;
         private IPlayableCharacter playableCharacter;
-        private PlayerInputHandler inputHandler;
-        private void Awake()
-        {
-            inputHandler = new(inputActionAsset);
-        }
+        [Inject] private PlayerInputHandler inputHandler;
 
         [Inject]
         void Construct(IPlayableCharacter playableCharacter)

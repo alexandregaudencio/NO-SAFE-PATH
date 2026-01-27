@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Game.PlayerSystem
 {
@@ -10,12 +11,14 @@ namespace Game.PlayerSystem
         private const string ACTION_MAP = "Character";
         private const string MOVE_ACTION = "move";
         private const string JUMP_ACTION = "Jump";
+        [Inject] private InputActionAsset inputActionAsset;
         public static Vector3 direction = Vector3.zero;
         private readonly InputActionAsset actionAsset;
         private InputActionMap actionMap;
         private InputAction moveAction;
         private InputAction jumpAction;
-        public PlayerInputHandler(InputActionAsset actionAsset)
+        
+        public PlayerInputHandler()
         {
             this.actionAsset = actionAsset;
             moveAction = actionAsset.FindAction(MOVE_ACTION);
