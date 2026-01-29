@@ -13,11 +13,9 @@ namespace LevelSystem
     {
         [SerializeField] private TMP_Text text_tempo;
         [SerializeField] private GameObject gameoverTela;
-         [Inject] private EnemySpawner enemyspawner;
 
         private void Start()
         {
-             print(enemyspawner == null);
             gameoverTela.SetActive(false);
             StartCoroutine(Temporizador());
         }

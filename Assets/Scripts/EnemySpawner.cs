@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Game.CharacterSystem;
 using UnityEngine;
 using Zenject;
@@ -9,55 +10,45 @@ namespace EnemyFactorySystem
     public class EnemySpawner : ITickable
     {
 
-        [SerializeField] private int maximo = 50;
-        [SerializeField] private EnemyController[] inimigos;
-        [SerializeField] private float intervalo = 3;
-        [SerializeField] private float raio = 3;
-        private int contadorInimigos = 0;
+        private const int MAX = 50;
+        // private List<EnemyController> enemies = new();
+        private float spawnInterval = 3;  //in seconds
+        private int enemyCount = 0;
+        private Vector3[] holePositions;
+        private float releasedTime = 0;
        [Inject]  private EnemyFactory factory;
-        
 
-        private float tempo = 0;
+        public EnemySpawner(Vector3[] holePositions)
+        {
+            this.holePositions = holePositions;
+        }
         
         public void Tick()
         {
-            Debug.Log("tick");
-            tempo += Time.deltaTime;
-            if (tempo >= intervalo)
-            {
-                tempo = 0;
-                contadorInimigos++;
-                var randomIndex = Random.Range(0, 3);
-                Debug.Log(randomIndex + " index");
-                
-                var instance = factory.Create((EnemyType)randomIndex);
-                
-            }
+            releasedTime += Time.deltaTime;
+            SpawnLoopUpdate();
 
         }
 
-        // private void Start()
-        // {
-        //     StartCoroutine(GerarInimigos());
-        // }
-        //
-        // private IEnumerator GerarInimigos()
-        // {
-        //     while (contadorInimigos < maximo)
-        //     {
-        //         GerarInimigo();
-        //         contadorInimigos++;
-        //         yield return new WaitForSeconds(intervalo);
-        //     }
-        // }
-        //
-        // private void GerarInimigo()
-        // {
-        //     int indiceAleatorio = Random.Range(0, inimigos.Length);
-        //     var inimigoEscolhido = inimigos[indiceAleatorio];
-        //     Instantiate(inimigoEscolhido, transform.position, Quaternion.identity);
-        // }
+        public void SpawnLoopUpdate()
+        {
+            if (releasedTime >= spawnInterval)
+            {                 
+                releasedTime = 0;
+                if (enemyCount < MAX)
+                {
+                    enemyCount++;
+                    var enemyRandomIndex = Random.Range(0, 3);
+                    var enemyInstance = factory.Create((EnemyType)enemyRandomIndex);
+                    var positionRandomIndex = holePositions[Random.Range(0, holePositions.Length)];
+                    enemyInstance.Initiliaze(positionRandomIndex);
+                    // enemies.Add(enemyInstance);
+                }
+               
+            }
+        }
 
+       
 
     }
 }

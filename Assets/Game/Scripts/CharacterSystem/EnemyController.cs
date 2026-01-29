@@ -12,6 +12,11 @@ namespace Game.CharacterSystem
             moveDirection = Random.onUnitSphere.normalized;
             moveDirection.y = 0;
         }
+        
+        public void Initiliaze(Vector3 position)
+        {
+            transform.position = position;
+        }
 
         private void Update()
         {

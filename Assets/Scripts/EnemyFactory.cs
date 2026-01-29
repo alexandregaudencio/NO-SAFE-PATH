@@ -5,6 +5,7 @@ namespace EnemyFactorySystem
 {
     public class EnemyFactory : PlaceholderFactory<EnemyType, EnemyController>
     {
+         
         
     }
 }
