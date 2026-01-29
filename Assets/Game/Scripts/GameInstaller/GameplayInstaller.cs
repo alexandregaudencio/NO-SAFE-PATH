@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using EnemyFactorySystem;
 using Game.CharacterSystem;
 using Game.PlayerSystem;
@@ -9,7 +10,8 @@ using Zenject;
 public class GameplayInstaller : MonoInstaller
 {
     [SerializeField] InputActionAsset inputActions;
-    [SerializeField] private EnemyController enemyPrefab;
+    // [SerializeField] private EnemyController enemyPrefab;
+    [SerializedDictionary] public SerializedDictionary<EnemyType, EnemyController> enemies;
     public override void InstallBindings()
     {
         Container.Bind<IPlayableCharacter>().FromComponentInHierarchy().AsSingle();
@@ -20,15 +22,9 @@ public class GameplayInstaller : MonoInstaller
         //     .BindFactory<EnemyController, EnemyFactory>()
         //     .FromComponentInNewPrefab(enemyPrefab)
         //     .UnderTransformGroup("Enemies");
-        
-        
-        var prefabMap = new Dictionary<EnemyType, EnemyController>
-        {
-            { EnemyType.BEE, enemyPrefab },
-            { EnemyType.SKULL, enemyPrefab },
-            { EnemyType.ORC, enemyPrefab },
-            { EnemyType.CARANGUEIJO, enemyPrefab },
-        };
+
+
+        var prefabMap = enemies as Dictionary<EnemyType, EnemyController>;
         
         Container.BindInstance(prefabMap);
 
@@ -40,7 +36,7 @@ public class GameplayInstaller : MonoInstaller
 
                 if (!map.TryGetValue(type, out var prefab))
                 {
-                    throw new System.Exception($"EnemyType não mapeado: {type}");
+                    throw new System.Exception($"EnemyType out of map: {type}");
                 }
 
                 var enemy = container
