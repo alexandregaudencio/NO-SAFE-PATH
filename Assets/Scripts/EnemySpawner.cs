@@ -27,8 +27,10 @@ namespace EnemyFactorySystem
             {
                 tempo = 0;
                 contadorInimigos++;
-                Debug.Log(contadorInimigos);
-                // var instance = factory.Create();
+                var randomIndex = Random.Range(0, 3);
+                Debug.Log(randomIndex + " index");
+                
+                var instance = factory.Create((EnemyType)randomIndex);
                 
             }
 

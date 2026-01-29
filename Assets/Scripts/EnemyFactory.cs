@@ -3,7 +3,7 @@ using Zenject;
 
 namespace EnemyFactorySystem
 {
-    public class EnemyFactory : PlaceholderFactory<EnemyController>
+    public class EnemyFactory : PlaceholderFactory<EnemyType, EnemyController>
     {
         
     }
