@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 357821609}
   - component: {fileID: 357821610}
+  - component: {fileID: 357821611}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Untagged
@@ -571,6 +572,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &357821611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357821608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fe49bf7bab4f80ac8402d5389b520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.SpawnHole
 --- !u!1001 &386160220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -773,6 +786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 654254251}
   - component: {fileID: 654254252}
+  - component: {fileID: 654254253}
   m_Layer: 0
   m_Name: Hole4
   m_TagString: Untagged
@@ -853,6 +867,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &654254253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654254250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fe49bf7bab4f80ac8402d5389b520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.SpawnHole
 --- !u!1 &677095627
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 677095628}
   - component: {fileID: 677095629}
+  - component: {fileID: 677095630}
   m_Layer: 0
   m_Name: Hole2
   m_TagString: Untagged
@@ -943,6 +970,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &677095630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677095627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fe49bf7bab4f80ac8402d5389b520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.SpawnHole
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1067,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199074298}
   - component: {fileID: 1199074299}
+  - component: {fileID: 1199074300}
   m_Layer: 0
   m_Name: Hole5
   m_TagString: Untagged
@@ -1108,6 +1148,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1199074300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199074297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fe49bf7bab4f80ac8402d5389b520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.SpawnHole
 --- !u!1 &1242596272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1329,7 +1381,12 @@ MonoBehaviour:
       Value: {fileID: 3227241477995389752, guid: 65869bcba07975140ad0b6197b6d9a94, type: 3}
     - Key: 3
       Value: {fileID: 2622357663140068612, guid: 0a24cff42d0183e48ad7c72d27f81513, type: 3}
-  holes: []
+  holes:
+  - {fileID: 357821611}
+  - {fileID: 677095630}
+  - {fileID: 1759632598}
+  - {fileID: 654254253}
+  - {fileID: 1199074300}
 --- !u!114 &1600132635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1372,6 +1429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1759632596}
   - component: {fileID: 1759632597}
+  - component: {fileID: 1759632598}
   m_Layer: 0
   m_Name: Hole3
   m_TagString: Untagged
@@ -1452,6 +1510,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1759632598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759632595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fe49bf7bab4f80ac8402d5389b520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.SpawnHole
 --- !u!1001 &626925146506791233
 PrefabInstance:
   m_ObjectHideFlags: 0

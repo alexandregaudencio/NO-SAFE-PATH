@@ -14,16 +14,15 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField] InputActionAsset inputActions;
     // [SerializeField] private EnemyController enemyPrefab;
     [SerializedDictionary] public SerializedDictionary<EnemyType, EnemyController> enemies;
-    [SerializeField] private Transform[] holes;
+    [SerializeField] private SpawnHole[] holes;
    
     public override void InstallBindings()
     {
         Container.Bind<IPlayableCharacter>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PlayerInputHandler>().AsSingle().WithArguments(inputActions);
 
-        Vector3[]  holePositions = holes.Select(t => t.position).ToArray();
         Container.BindInterfacesAndSelfTo<EnemySpawner>().AsSingle()
-            .WithArguments(holePositions);
+            .WithArguments(holes);
         
         // Container
         //     .BindFactory<EnemyController, EnemyFactory>()

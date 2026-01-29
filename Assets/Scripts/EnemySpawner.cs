@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Game.CharacterSystem;
 using UnityEngine;
 using Zenject;
@@ -14,13 +16,13 @@ namespace EnemyFactorySystem
         // private List<EnemyController> enemies = new();
         private float spawnInterval = 3;  //in seconds
         private int enemyCount = 0;
-        private Vector3[] holePositions;
+        private SpawnHole[] holes;
         private float releasedTime = 0;
        [Inject]  private EnemyFactory factory;
 
-        public EnemySpawner(Vector3[] holePositions)
+        public EnemySpawner(SpawnHole[] holes)
         {
-            this.holePositions = holePositions;
+            this.holes = holes;
         }
         
         public void Tick()
@@ -30,7 +32,7 @@ namespace EnemyFactorySystem
 
         }
 
-        public void SpawnLoopUpdate()
+        public async void SpawnLoopUpdate()
         {
             if (releasedTime >= spawnInterval)
             {                 
@@ -38,9 +40,12 @@ namespace EnemyFactorySystem
                 if (enemyCount < MAX)
                 {
                     enemyCount++;
+                    var hole = holes[Random.Range(0, holes.Length)];
+                    hole.ActiveFeedback();
+                    await UniTask.Delay(1000);
                     var enemyRandomIndex = Random.Range(0, 3);
                     var enemyInstance = factory.Create((EnemyType)enemyRandomIndex);
-                    var positionRandomIndex = holePositions[Random.Range(0, holePositions.Length)];
+                    var positionRandomIndex = hole.Position;
                     enemyInstance.Initiliaze(positionRandomIndex);
                     // enemies.Add(enemyInstance);
                 }
