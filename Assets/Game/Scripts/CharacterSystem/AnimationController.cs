@@ -13,9 +13,9 @@ namespace Game.CharacterSystem
             this.animator = animator;
         }
 
-        public void Play(string animationName, int layer = 0, float normalizedTime = 0)
+        public void Play(int animationHash, int layer = 0, float normalizedTime = 0)
         {
-            animator.Play(animationName,0,normalizedTime);
+            animator.Play(animationHash,0,normalizedTime);
         }
     }
 }

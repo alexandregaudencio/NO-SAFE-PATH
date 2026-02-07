@@ -3,7 +3,9 @@
     "rootNamespace": "CharacterSystem",
     "references": [
         "GUID:85534d8200e3b294087f9bef02a3029d",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:a3c1e868f82224b42a9b8c269e7b663c",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

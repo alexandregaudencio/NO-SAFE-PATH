@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7342a6b9e9052614eaae7741747a2a10, type: 3}
-  m_Name: personagem
+  m_Name: enemy
   m_EditorClassIdentifier: Assembly-CSharp::Atributos
-  dano: 10
-  vida: 3
+  dano: 1
+  vida: 1
   velocidade: 400

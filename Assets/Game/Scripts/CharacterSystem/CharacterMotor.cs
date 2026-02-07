@@ -24,7 +24,7 @@ namespace Game.CharacterSystem
 
         public void Move(Vector3 direction)
         {
-            var newVelocity = direction.normalized * (attributes.speed * Time.fixedDeltaTime);
+            var newVelocity = direction.normalized * (attributes.Speed * Time.fixedDeltaTime);
             newVelocity.y = rigidbody.linearVelocity.y;
             rigidbody.linearVelocity = newVelocity;
         }

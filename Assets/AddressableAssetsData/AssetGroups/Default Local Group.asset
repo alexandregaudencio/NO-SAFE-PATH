@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Default Local Group
+  m_GUID: 96d2443ecc4d5b94fba36ffeac810961
+  m_SerializeEntries:
+  - m_GUID: 0599945c0f8ba8c40842b9d17847d2e5
+    m_Address: Assets/Game/Art/Texture/joystick_circle_pad_highlight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09cf6921036807f4bb8281e5870eecd3
+    m_Address: Assets/Game/Art/Texture/icon_music_disabled.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a24cff42d0183e48ad7c72d27f81513
+    m_Address: Assets/Prefabs/Enemies/Inimigo Carangueijo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155054fb079c8ec4893711debfa318cb
+    m_Address: Assets/Prefabs/Enemies/Inimigo abelha.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f680e67e4c422e4bb6e69d61ff3b504
+    m_Address: Assets/Game/Art/Texture/icon_arrow.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3317c7475c33d754f92bce0e915099db
+    m_Address: Assets/Game/Art/Texture/icon_skull.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457fdcff2d9fb9644b003ef7f176ffe7
+    m_Address: Assets/Game/Art/Texture/joystick_circle_pad_c.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4879814feb34509449364f7934e058d9
+    m_Address: Assets/Game/Art/Texture/joystick_circle_nub_c.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d7320274fa8f614592437dd1e91e2ec
+    m_Address: Assets/Game/Art/Texture/icon_star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e72b809ea3199a40b7f62062a977946
+    m_Address: Assets/Prefabs/Enemies/Inimigo cranio caveira Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5a16a84a63cc8be41a2a2909ff2a1591
+    m_Address: Assets/Game/Art/Texture/icon_shield.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6342e53aad103184c8be4d3cd5a918fe
+    m_Address: Assets/Game/Art/Texture/icon_menu.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65869bcba07975140ad0b6197b6d9a94
+    m_Address: Assets/Prefabs/Enemies/Inimigo orc Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79ed507a498f122408c6ba31094c54b3
+    m_Address: Assets/Game/Art/Texture/joystick_circle_nub_highlight.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96666a7cb8481344c9df09ab4d09e79f
+    m_Address: Assets/Game/Art/Texture/icon_music.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a19c3d22667e33f4eba959d1896944cc
+    m_Address: Assets/Game/Art/Texture/icon_save.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc860efe8a53e634d9d7eeb00dfcc697
+    m_Address: Assets/Game/Art/Texture/icon_cog.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6f7837df6f285a4e97f10639d7cfee5
+    m_Address: Assets/Prefabs/Enemies/Inimigo1 base.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fea7c3d6697f0474ba44329ba8f667e6
+    m_Address: Assets/Game/Art/Texture/icon_cross.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 84e8671c3bfa4b148bf37403bd08ab9c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5c6b23a7b5fb04141acfd957a95e3064, type: 2}
+    - {fileID: 11400000, guid: a1cf6a0534a11c24e9601b06c4180aa8, type: 2}

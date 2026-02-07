@@ -1,14 +1,11 @@
-using System;
 using Game.Attributes;
 using UniRx;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 namespace Game.CharacterSystem
 {
-    //PlayableCharacterState
+    //Simple: PlayableCharacterState
     public enum CharacterState
     {
         Idle,
@@ -16,8 +13,6 @@ namespace Game.CharacterSystem
         Jump,
         Death
     }
-
-  
 
     // public class CharacterModel : ICharacter
     // {
@@ -61,7 +56,7 @@ namespace Game.CharacterSystem
             motor = new CharacterMotor(Attributes, rigidbody, feet);
             animator = GetComponentInChildren<Animator>();
             State.Value = (CharacterState.Idle);
-            Health  = new(Attributes.health);
+            Health  = new(Attributes.Health);
             AnimationController = new AnimationController(GetComponentInChildren<Animator>());
         }    
         
@@ -85,7 +80,7 @@ namespace Game.CharacterSystem
             if(State.Value == CharacterState.Jump) return;
             else State.Value = CharacterState.Jump;
             motor.Impulse(Vector3.up,jumpForce);
-            AnimationController.Play("Jump");
+            AnimationController.Play(GameTag.Jump);
 
         }
         
@@ -96,14 +91,14 @@ namespace Game.CharacterSystem
             {
                 if (other.gameObject.TryGetComponent(out IDamageable damageable))
                 {
-                    damageable.ApplyDamage(Attributes.damage);
+                    damageable.ApplyDamage(Attributes.Damage);
                 }
             }
         }
 
         private void SetHealth(int valor)
         {
-            Health.Value = Mathf.Clamp(Health.Value - valor, 0, Attributes.health);
+            Health.Value = Mathf.Clamp(Health.Value - valor, 0, Attributes.Health);
         }
 
 

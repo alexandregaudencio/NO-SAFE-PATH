@@ -1,16 +1,25 @@
 using System;
 using System.Collections;
-using Game.CharacterSystem;
+using CollectableSystem;
 using UnityEngine;
 
 namespace Game.CharacterSystem
 {
+    public static class GameTag {
+        public const string Player = "Player";
+        public const string Ground = "Ground";
+        public const string Enemy = "Enemy";
+        public const string Collectable = "Collectable";
+        
+        public static readonly int Jumping = Animator.StringToHash("Jumping");
+        public static readonly int Jump = Animator.StringToHash("Jump");
 
+        public static readonly int XZspeed = Animator.StringToHash("XZspeed");
 
+    }
 
     public class PlayableCharacter : CharacterController, IPlayableCharacter
     {        
-        private static readonly int XZspeed = Animator.StringToHash("XZspeed");
         [SerializeField] private Material material;
         [SerializeField] Color ColorInicial;
         [SerializeField] private float alturaPulo = 20;
@@ -27,26 +36,43 @@ namespace Game.CharacterSystem
 
           protected void Update()
           {
-              animator.SetFloat(XZspeed, Mathf.Abs( moveDirection.normalized.magnitude));
+              animator.SetFloat(GameTag.XZspeed, Mathf.Abs( moveDirection.normalized.magnitude));
 
           }
-        protected override void OnCollisionEnter(Collision other)
-        {
-            base.OnCollisionEnter(other);
-            if (other.gameObject.CompareTag("Enemy"))
-            {
-                PlayAudioClip(hitAudioClip);
-                StartCoroutine(DamageEffect());
-            }
 
-            if (other.gameObject.CompareTag("Solo"))
-            {
-                State.Value =(CharacterState.Idle);
-                animator.SetBool("pulando", false);
-            }
+          protected override void OnCollisionEnter(Collision other)
+          {
+              base.OnCollisionEnter(other);
+              if (other.gameObject.CompareTag(GameTag.Enemy))
+              {
+                  PlayAudioClip(hitAudioClip);
+                  StartCoroutine(DamageEffect());
+              }
+
+              if (other.gameObject.CompareTag(GameTag.Ground))
+              {
+                  State.Value = (CharacterState.Idle);
+                  animator.SetBool(GameTag.Jumping, false);
+              }
+
+
+
+
+            
+                
+            
         }
 
-        protected IEnumerator DamageEffect()
+          private void OnTriggerEnter(Collider other)
+          {
+              if (other.CompareTag(GameTag.Collectable))
+              {
+                  if (!other.TryGetComponent(out ICollectable collectable)) return;
+                  collectable.Collect(this);
+              }
+          }
+
+          protected IEnumerator DamageEffect()
         {
             material.color = Color.softRed;
             yield return new WaitForSeconds(0.2f);
@@ -58,5 +84,13 @@ namespace Game.CharacterSystem
             audioSource.clip = audioClip;
             audioSource.Play();
         }
+
+        public void ApplyEffect(Buff buff)
+        {
+            Attributes.BuffAttributes(buff);
+
+        }
+
+
     }
 }
