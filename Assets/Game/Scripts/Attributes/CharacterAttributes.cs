@@ -1,14 +1,11 @@
 using CollectableSystem;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace Game.Attributes
 {
-
-
-    [CreateAssetMenu(fileName = "atributos")]
+    
+    [CreateAssetMenu(fileName = "Attributes")]
     public class CharacterAttributes : ScriptableObject
     {
         [field: SerializeField] public int Damage { get; private set; } =10;
@@ -26,7 +23,6 @@ namespace Game.Attributes
 
         private void DebuffAttributes(Buff buff)
         {
-            Damage -= buff.Damage;
             Health -= buff.Health;
             Speed -= buff.Speed;
         }

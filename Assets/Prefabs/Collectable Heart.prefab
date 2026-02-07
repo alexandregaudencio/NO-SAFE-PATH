@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.25572
+      value: 3.171209
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00562
+      value: -0.0056209564
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.65321
+      value: -8.810604
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,12 +48,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f55936ec7fe772d4fb89b040d798cebf, type: 2}
     - target: {fileID: 919132149155446097, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
       propertyPath: m_Name
       value: Collectable Heart
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+      propertyPath: m_TagString
+      value: Collectable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3126798381197202963}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2922414873167278317}
   m_SourcePrefab: {fileID: 100100000, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+--- !u!1 &559744756693916126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dfea2cca70c967146ba1576bb553ffda, type: 3}
+  m_PrefabInstance: {fileID: 794310504929420431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &3126798381197202963
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559744756693916126}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.007400605
+  m_Center: {x: 0, y: 0, z: 0.00051335373}
+--- !u!114 &2922414873167278317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559744756693916126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bc7aeb6d1036942afde74338bf349c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: CollectableSystem::CollectableSystem.CollectableObject
+  buff:
+    <Duration>k__BackingField: -1
+    <Health>k__BackingField: 1
+    <Speed>k__BackingField: 0
+    <Damage>k__BackingField: 0

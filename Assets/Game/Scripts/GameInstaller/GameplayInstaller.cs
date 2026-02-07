@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using AYellowpaper.SerializedCollections;
+using CollectableSystem;
 using EnemyFactorySystem;
 using Game.CharacterSystem;
 using Game.PlayerSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using Zenject;
 
 public class GameplayInstaller : MonoInstaller
@@ -14,6 +13,7 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField] InputActionAsset inputActions;
     // [SerializeField] private EnemyController enemyPrefab;
     [SerializedDictionary] public SerializedDictionary<EnemyType, EnemyController> enemies;
+    [SerializedDictionary] public SerializedDictionary<CollectableType, CollectableObject> collectables;
     [SerializeField] private SpawnHole[] holes;
    
     public override void InstallBindings()
@@ -23,6 +23,7 @@ public class GameplayInstaller : MonoInstaller
 
         Container.BindInterfacesAndSelfTo<EnemySpawner>().AsSingle()
             .WithArguments(holes);
+        Container.BindInterfacesAndSelfTo<CollectableSpawner>().AsSingle();
         
         // Container
         //     .BindFactory<EnemyController, EnemyFactory>()
@@ -50,6 +51,22 @@ public class GameplayInstaller : MonoInstaller
 
                 // enemy.Initialize();
                 return enemy;
+            });
+        
+        Container
+            .BindFactory<CollectableType, CollectableObject, CollectableFactory>()
+            .FromMethod((container, type) =>
+            {
+                var map = container.Resolve<Dictionary<CollectableType, CollectableObject>>();
+
+                if (!map.TryGetValue(type, out var prefab))
+                {
+                    throw new System.Exception($"Collectable type out of map: {type}");
+                }
+
+                var collectable = container
+                    .InstantiatePrefabForComponent<CollectableObject>(prefab);
+                return collectable;
             });
             
     }

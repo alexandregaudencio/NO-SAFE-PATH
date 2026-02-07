@@ -9,6 +9,7 @@ using Zenject;
 namespace EnemyFactorySystem
 {
 
+
     public class EnemySpawner : ITickable
     {
 
