@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7342a6b9e9052614eaae7741747a2a10, type: 3}
   m_Name: playableCharacter
   m_EditorClassIdentifier: Assembly-CSharp::Atributos
-  damage: 10
-  health: 3
-  speed: 600
+  <Damage>k__BackingField: 10
+  <Health>k__BackingField: 7
+  <Speed>k__BackingField: 1034.1

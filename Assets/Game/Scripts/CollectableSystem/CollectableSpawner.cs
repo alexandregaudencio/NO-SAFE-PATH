@@ -34,12 +34,12 @@ namespace CollectableSystem
                 {
                     enemyCount++;
                     await UniTask.Delay(1000);
-                    var instance = factory.Create(CollectableType.RAY);
-                    instance.transform.position =Random.insideUnitCircle * 3;
-                    // var enemyRandomIndex = Random.Range(0, 3);
-                    // var enemyInstance = factory.Create((EnemyType)enemyRandomIndex);
-                    // var positionRandomIndex = hole.Position;
-                    // enemyInstance.Initiliaze(positionRandomIndex);
+                    int randomIndex = Random.Range(0, 2);
+                    var instance = factory.Create((CollectableType)randomIndex);
+                    var randomPosition =Random.insideUnitSphere * 10;
+                    randomPosition.y = 0;
+                    instance.transform.position = randomPosition;
+                    
                 }
            
             }

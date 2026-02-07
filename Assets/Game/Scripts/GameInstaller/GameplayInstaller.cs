@@ -31,9 +31,9 @@ public class GameplayInstaller : MonoInstaller
         //     .UnderTransformGroup("Enemies");
 
 
-        var prefabMap = enemies as Dictionary<EnemyType, EnemyController>;
+        var enemyDictionary = enemies as Dictionary<EnemyType, EnemyController>;
         
-        Container.BindInstance(prefabMap);
+        Container.BindInstance(enemyDictionary);
 
         Container
             .BindFactory<EnemyType, EnemyController, EnemyFactory>()
@@ -52,6 +52,11 @@ public class GameplayInstaller : MonoInstaller
                 // enemy.Initialize();
                 return enemy;
             });
+        
+        
+        var collectableDictionary = collectables as Dictionary<CollectableType, CollectableObject>;
+        Container.BindInstance(collectableDictionary);
+
         
         Container
             .BindFactory<CollectableType, CollectableObject, CollectableFactory>()

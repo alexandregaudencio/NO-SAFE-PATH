@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7342a6b9e9052614eaae7741747a2a10, type: 3}
   m_Name: enemy
   m_EditorClassIdentifier: Assembly-CSharp::Atributos
-  dano: 1
-  vida: 1
-  velocidade: 400
+  <Damage>k__BackingField: 1
+  <Health>k__BackingField: 1
+  <Speed>k__BackingField: 400
