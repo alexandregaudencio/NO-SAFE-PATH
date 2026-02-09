@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac19e8ec066a564f83495c45c6c20f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: PlayerSystem::Game.PlayerSystem.PlayerController
-  inputActionAsset: {fileID: -944628639613478452, guid: e1406b679213e3b43bb5ca4e8beb8f7d, type: 3}
 --- !u!1001 &5985557031808061871
 PrefabInstance:
   m_ObjectHideFlags: 0

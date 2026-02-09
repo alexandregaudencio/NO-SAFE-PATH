@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Atributos
   <Damage>k__BackingField: 10
   <Health>k__BackingField: 7
-  <Speed>k__BackingField: 1034.1
+  <Speed>k__BackingField: 600

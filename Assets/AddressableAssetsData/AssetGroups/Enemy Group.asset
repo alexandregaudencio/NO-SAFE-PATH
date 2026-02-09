@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Enemy Group
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Enemy Group
+  m_GUID: 3eb6da3f8be7a244f8aa81244f40fb0f
+  m_SerializeEntries:
+  - m_GUID: 0a24cff42d0183e48ad7c72d27f81513
+    m_Address: Assets/Prefabs/Enemies/Inimigo Carangueijo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155054fb079c8ec4893711debfa318cb
+    m_Address: Assets/Prefabs/Enemies/Inimigo abelha.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e72b809ea3199a40b7f62062a977946
+    m_Address: Assets/Prefabs/Enemies/Inimigo cranio caveira Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 65869bcba07975140ad0b6197b6d9a94
+    m_Address: Assets/Prefabs/Enemies/Inimigo orc Variant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6f7837df6f285a4e97f10639d7cfee5
+    m_Address: Assets/Prefabs/Enemies/Inimigo1 base.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 84e8671c3bfa4b148bf37403bd08ab9c, type: 2}
+  m_SchemaSet:
+    m_Schemas: []

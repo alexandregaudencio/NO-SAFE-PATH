@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ac63a408612440e874e82ade0afe889, type: 3}
+  m_Name: SceneLoadData
+  m_EditorClassIdentifier: SceneLoaderSystem::SceneLoaderSystem.SceneLoadDataSO
+  <Scenes>k__BackingField:
+  - Key: 0
+    SceneReference:
+      m_AssetGUID: 9dc933962b45f8a41a10d46054496853
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Key: 1
+    SceneReference:
+      m_AssetGUID: ce9843d18427a7b4faf6d60e5ad15209
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Key: 2
+    SceneReference:
+      m_AssetGUID: 99c9720ab356a0642a771bea13969a05
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - Key: 3
+    SceneReference:
+      m_AssetGUID: a53de933367e2b84ea9734d501defacf
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 1
