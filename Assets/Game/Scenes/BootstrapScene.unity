@@ -129,8 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 788002910}
   - component: {fileID: 788002912}
-  - component: {fileID: 788002909}
   - component: {fileID: 788002911}
+  - component: {fileID: 788002909}
   m_Layer: 0
   m_Name: BootstrapInstaller
   m_TagString: Untagged
