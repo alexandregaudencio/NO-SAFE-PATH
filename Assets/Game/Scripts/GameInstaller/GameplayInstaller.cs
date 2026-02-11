@@ -12,7 +12,7 @@ public class GameplayInstaller : MonoInstaller
 {
     [SerializeField] InputActionAsset inputActions;
     // [SerializeField] private EnemyController enemyPrefab;
-    [SerializedDictionary] public SerializedDictionary<EnemyType, EnemyController> enemies;
+    [SerializeField] private EnemyCatalogSO enemyCatalog;
     [SerializedDictionary] public SerializedDictionary<CollectableType, CollectableObject> collectables;
     [SerializeField] private SpawnHole[] holes;
    
@@ -29,30 +29,30 @@ public class GameplayInstaller : MonoInstaller
         //     .BindFactory<EnemyController, EnemyFactory>()
         //     .FromComponentInNewPrefab(enemyPrefab)
         //     .UnderTransformGroup("Enemies");
+        var enemyCatalogDic = enemyCatalog.EnemyDictionary as Dictionary<EnemyType, EnemyController>;
+        Container.BindInstance(enemyCatalogDic);
 
-
-        var enemyDictionary = enemies as Dictionary<EnemyType, EnemyController>;
-        
-        Container.BindInstance(enemyDictionary);
-
+      
         Container
             .BindFactory<EnemyType, EnemyController, EnemyFactory>()
+            
             .FromMethod((container, type) =>
-            {
-                var map = container.Resolve<Dictionary<EnemyType, EnemyController>>();
-
-                if (!map.TryGetValue(type, out var prefab))
+            {   
+                //Find enemyCatalogSO
+                var enemyCatalogDicMapped = container.Resolve<Dictionary<EnemyType, EnemyController>>();
+        
+                if (!enemyCatalogDicMapped.TryGetValue(type, out var prefab))
                 {
                     throw new System.Exception($"EnemyType out of map: {type}");
                 }
-
+        
                 var enemy = container
                     .InstantiatePrefabForComponent<EnemyController>(prefab);
-
+        
                 // enemy.Initialize();
                 return enemy;
             });
-        
+
         
         var collectableDictionary = collectables as Dictionary<CollectableType, CollectableObject>;
         Container.BindInstance(collectableDictionary);

@@ -9,6 +9,8 @@ namespace EnemyFactorySystem
     [CreateAssetMenu(menuName = "enemy catalog")]
     public class EnemyCatalogSO : ScriptableObject
     {
-        [field: SerializeField] public SerializedDictionary<EnemyType, AssetReference> Enemies { get; private set; }
+        [field: SerializeField] public SerializedDictionary<EnemyType, EnemyController> EnemyDictionary { get; private set; }
+
+        
     }
 }

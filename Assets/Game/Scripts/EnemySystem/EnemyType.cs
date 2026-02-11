@@ -5,6 +5,6 @@
         BEE,
         SKULL,
         ORC,
-        CARANGUEIJO
+        CRAB
     }
 }
