@@ -13,7 +13,7 @@ public class GameplayInstaller : MonoInstaller
     [SerializeField] InputActionAsset inputActions;
     // [SerializeField] private EnemyController enemyPrefab;
     [SerializeField] private EnemyCatalogSO enemyCatalog;
-    [SerializedDictionary] public SerializedDictionary<CollectableType, CollectableObject> collectables;
+    [SerializeField] private CollectableCatalogSO collectableCatalog;
     [SerializeField] private SpawnHole[] holes;
    
     public override void InstallBindings()
@@ -35,10 +35,10 @@ public class GameplayInstaller : MonoInstaller
       
         Container
             .BindFactory<EnemyType, EnemyController, EnemyFactory>()
-            
+            //ver depois o que faz
             .FromMethod((container, type) =>
             {   
-                //Find enemyCatalogSO
+                //Resolve: Find enemyCatalogSO
                 var enemyCatalogDicMapped = container.Resolve<Dictionary<EnemyType, EnemyController>>();
         
                 if (!enemyCatalogDicMapped.TryGetValue(type, out var prefab))
@@ -53,8 +53,8 @@ public class GameplayInstaller : MonoInstaller
                 return enemy;
             });
 
-        
-        var collectableDictionary = collectables as Dictionary<CollectableType, CollectableObject>;
+
+        var collectableDictionary = collectableCatalog.GetcollectableDictionary();
         Container.BindInstance(collectableDictionary);
 
         

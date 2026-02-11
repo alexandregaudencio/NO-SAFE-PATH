@@ -1338,7 +1338,7 @@ GameObject:
   - component: {fileID: 1600132635}
   - component: {fileID: 1600132634}
   m_Layer: 0
-  m_Name: Installer
+  m_Name: GameplayInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1372,24 +1372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Installer::GameplayInstaller
   inputActions: {fileID: -944628639613478452, guid: e1406b679213e3b43bb5ca4e8beb8f7d, type: 3}
-  enemies:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 4094060013017025612, guid: 155054fb079c8ec4893711debfa318cb, type: 3}
-    - Key: 1
-      Value: {fileID: 5546125275068068067, guid: 4e72b809ea3199a40b7f62062a977946, type: 3}
-    - Key: 2
-      Value: {fileID: 3227241477995389752, guid: 65869bcba07975140ad0b6197b6d9a94, type: 3}
-    - Key: 3
-      Value: {fileID: 2622357663140068612, guid: 0a24cff42d0183e48ad7c72d27f81513, type: 3}
-  collectables:
-    _serializedList:
-    - Key: 0
-      Value: {fileID: 7741747676750859278, guid: 9461802551b40ba489cce358be52eb04, type: 3}
-    - Key: 1
-      Value: {fileID: 2922414873167278317, guid: 04e82090bfac21841b5c3b03c6376120, type: 3}
-    - Key: 2
-      Value: {fileID: 1443773591547999598, guid: 8bdddd26b86de5148a462312b6a40260, type: 3}
+  enemyCatalog: {fileID: 11400000, guid: 2b47bac9fe19a694a914bc4d970c67f9, type: 2}
+  collectableCatalog: {fileID: 11400000, guid: a7785672e623f1249865b2c63d1c3e38, type: 2}
   holes:
   - {fileID: 357821611}
   - {fileID: 677095630}

@@ -12,33 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1668e767823a4744aa8851b1e4c5795, type: 3}
   m_Name: Enemy Catalog
   m_EditorClassIdentifier: EnemyFactorySystem::EnemyFactorySystem.EnemyCatalogSO
-  <Enemies>k__BackingField:
+  <EnemyDictionary>k__BackingField:
     _serializedList:
     - Key: 0
-      Value:
-        m_AssetGUID: 155054fb079c8ec4893711debfa318cb
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_SubObjectGUID: 
-        m_EditorAssetChanged: 0
+      Value: {fileID: 4094060013017025612, guid: 155054fb079c8ec4893711debfa318cb, type: 3}
     - Key: 1
-      Value:
-        m_AssetGUID: 4e72b809ea3199a40b7f62062a977946
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_SubObjectGUID: 
-        m_EditorAssetChanged: 0
+      Value: {fileID: 5546125275068068067, guid: 4e72b809ea3199a40b7f62062a977946, type: 3}
     - Key: 2
-      Value:
-        m_AssetGUID: 65869bcba07975140ad0b6197b6d9a94
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_SubObjectGUID: 
-        m_EditorAssetChanged: 0
+      Value: {fileID: 3227241477995389752, guid: 65869bcba07975140ad0b6197b6d9a94, type: 3}
     - Key: 3
-      Value:
-        m_AssetGUID: 0a24cff42d0183e48ad7c72d27f81513
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_SubObjectGUID: 
-        m_EditorAssetChanged: 1
+      Value: {fileID: 2622357663140068612, guid: 0a24cff42d0183e48ad7c72d27f81513, type: 3}

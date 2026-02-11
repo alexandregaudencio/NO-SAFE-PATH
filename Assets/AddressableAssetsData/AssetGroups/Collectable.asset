@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Collectable
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Collectable
+  m_GUID: ef5cd6dcbdf3e8c4194fefe765c2343a
+  m_SerializeEntries:
+  - m_GUID: 04e82090bfac21841b5c3b03c6376120
+    m_Address: Assets/Prefabs/Collectable Heart.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39659c60ab1d7dc44b6b0be7801344e5
+    m_Address: Assets/Prefabs/Level.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 580d5fa48ff245a43a411d1c3c3b746f
+    m_Address: Assets/Prefabs/Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bdddd26b86de5148a462312b6a40260
+    m_Address: Assets/Prefabs/Collectable Diamond.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9461802551b40ba489cce358be52eb04
+    m_Address: Assets/Prefabs/Collectable Ray.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ea91659123986b4eb3fd756dc96c0a3
+    m_Address: Assets/Prefabs/Collectable.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7785672e623f1249865b2c63d1c3e38
+    m_Address: Collectable Catalog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df1a1f65fd75564488d9d8d7a683b54c
+    m_Address: Assets/Prefabs/Hearts.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 84e8671c3bfa4b148bf37403bd08ab9c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 71f26b8160dab8b4eb2841e0b21a1771, type: 2}
+    - {fileID: 11400000, guid: b3363c16916952d478adfd9dbfbd6034, type: 2}

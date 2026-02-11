@@ -37,7 +37,7 @@ namespace CollectableSystem
                     int randomIndex = Random.Range(0, 2);
                     var instance = factory.Create((CollectableType)randomIndex);
                     var randomPosition =Random.insideUnitSphere * 10;
-                    randomPosition.y = 0;
+                    randomPosition.y = 1;
                     instance.transform.position = randomPosition;
                     
                 }
